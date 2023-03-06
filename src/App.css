@@ -2,8 +2,8 @@
 
 .Footer {
   width: 100%;
-  padding: 20px;
-  height: 125px;
+  padding: 40px;
+  height: auto;
   background-color: #363a3e;
   color: white;
 }

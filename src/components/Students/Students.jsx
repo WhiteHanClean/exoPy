@@ -3,19 +3,27 @@ import s from "./Students.module.scss";
 import axios from "axios";
 
 const Students = () => {
-  const [students, setstudents] = useState([]);
+  const [students, setStudents] = useState([]);
   const BASE_URL = "https://jsonplaceholder.typicode.com";
 
   const getStudents = async () => {
     axios.get(BASE_URL + "/users").then((res) => {
-      console.log(res);
+      setStudents(res.data)
     });
   };
   useEffect(() => {
     getStudents()
   }, []);
 
-  return <div className={s.students}></div>;
+  return <div className={s.students}>
+    {
+        students.map(student => {
+            return (
+                <h1>{student.name}</h1>
+            )
+        })
+    }
+  </div>;
 };
 
 export default Students;
